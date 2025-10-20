@@ -3,195 +3,252 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Akal Video Stüdyo</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <title>After Effects Timeline (Zaman Çizelgesi)</title>
+  <meta name="description" content="After Effects timeline ile katmanlar, keyframe ve kompozisyonlarla animasyonlarını zamana göre yönetmenin temel adımlarını keşfet." />
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .ae-section {
+      padding: 48px 16px;
+    }
+
+    .ae-container {
+      max-width: 1080px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 18px 48px rgba(15, 23, 42, 0.12);
+      padding: 40px 32px;
+    }
+
+    .ae-header {
+      margin-bottom: 32px;
+    }
+
+    .ae-header h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2rem, 2.8vw, 2.75rem);
+      color: #0f172a;
+      letter-spacing: -0.015em;
+    }
+
+    .ae-summary {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .ae-grid {
+      display: grid;
+      gap: 32px;
+    }
+
+    .ae-card {
+      background: #f1f5f9;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .ae-card h2 {
+      margin-top: 0;
+      color: #0f172a;
+      font-size: 1.4rem;
+    }
+
+    .ae-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .ae-logic-list {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .ae-logic-list li {
+      margin-bottom: 12px;
+    }
+
+    .faq-item + .faq-item {
+      margin-top: 16px;
+    }
+
+    .faq-button {
+      width: 100%;
+      background: #ffffff;
+      border: 2px solid #0ea5e9;
+      border-radius: 10px;
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0f172a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .faq-button:focus-visible {
+      outline: 3px solid #0ea5e9;
+      outline-offset: 3px;
+    }
+
+    .faq-button[aria-expanded="true"] {
+      background: rgba(14, 165, 233, 0.12);
+      border-color: #0f172a;
+    }
+
+    .faq-answer {
+      margin: 12px 0 0;
+      padding: 0 4px;
+    }
+
+    .cta-wrap {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: none;
+      background: #0ea5e9;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta-button:focus-visible {
+      outline: 3px solid #0f172a;
+      outline-offset: 4px;
+    }
+
+    .cta-button:hover,
+    .cta-button:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(14, 165, 233, 0.35);
+    }
+
+    @media (min-width: 768px) {
+      .ae-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cta-wrap {
+        text-align: right;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "After Effects zaman çizelgesinin amacı nedir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "After Effects timeline, katmanlarını anahtar karelerle senkronize ederek görsel ve işitsel öğeleri zaman içinde uyumlu hale getirmeni sağlar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "After Effects ile Premiere Pro arasındaki fark nedir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Premiere Pro daha çok kes-yapıştır video montajına odaklanırken After Effects, animasyon ve efekt odaklı kompozisyonların zaman içinde organize edilmesine yöneliktir."
+          }
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
-  <header class="app-header">
-    <div class="brand">
-      <span class="logo">🎬</span>
-      <div>
-        <h1>Akal Video Stüdyo</h1>
-        <p>Tarayıcıda çalışan çevrimiçi video montajı</p>
+  <section class="ae-section" aria-labelledby="ae-timeline-heading">
+    <div class="ae-container">
+      <header class="ae-header">
+        <h1 id="ae-timeline-heading">After Effects Timeline (Zaman Çizelgesi) Nedir?</h1>
+        <p class="ae-summary">Timeline, projenin zaman eksenidir; hangi görüntü, ses, efekt ve animasyonun ne zaman başlayıp biteceğini ve katmanlar arası hiyerarşiyi yönetirsin.</p>
+      </header>
+      <div class="ae-grid">
+        <article class="ae-card" aria-labelledby="mantik-baslik">
+          <h2 id="mantik-baslik">Temel Mantık</h2>
+          <ul class="ae-logic-list">
+            <li>Her şey katmanlar (layers) halinde.</li>
+            <li>Zaman içinde değişim için keyframe (konum/ölçek/opasite/efekt).</li>
+            <li>Kompozisyonlar iç içe kullanılabilir.</li>
+            <li>AE montajdan çok hareket/efekt odaklıdır; timeline sahneleri zaman açısından organize eder.</li>
+          </ul>
+        </article>
+        <article class="ae-card" aria-labelledby="sss-baslik">
+          <h2 id="sss-baslik">Sık Sorulan Sorular</h2>
+          <div class="faq-item">
+            <button class="faq-button" aria-expanded="false" aria-controls="faq-1" id="faq-btn-1">
+              <span>Amaç nedir?</span>
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-1" role="region" aria-labelledby="faq-btn-1" hidden>
+              <p>Zaman içinde senkronize görsel-işitsel kompozisyon.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-button" aria-expanded="false" aria-controls="faq-2" id="faq-btn-2">
+              <span>Premiere farkı?</span>
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-2" role="region" aria-labelledby="faq-btn-2" hidden>
+              <p>Premiere kes-biç; AE animasyon/efekt odaklı.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="cta-wrap">
+        <a class="cta-button" href="#">Örnek proje dosyasını indir</a>
       </div>
     </div>
-    <div class="header-actions">
-      <a class="ghost-button" href="#yardim">Yardım</a>
-      <a class="ghost-button" href="https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder_API" target="_blank" rel="noopener">Teknik Detaylar</a>
-    </div>
-  </header>
-
-  <main>
-    <section class="panel upload-panel">
-      <h2>1. Videonu yükle</h2>
-      <p class="hint">Dosya seçin ve montaja başlayın. İşlem tamamen cihazınızda gerçekleşir.</p>
-      <label class="file-picker">
-        <input type="file" id="videoInput" accept="video/*" />
-        <span>Video Dosyası Seç</span>
-      </label>
-      <div class="inline-group">
-        <label class="file-picker secondary">
-          <input type="file" id="audioInput" accept="audio/*" />
-          <span>Arka Plan Müziği Ekle (opsiyonel)</span>
-        </label>
-        <button id="clearProject" class="ghost-button">Projeyi Sıfırla</button>
-      </div>
-      <div id="uploadStatus" class="status"></div>
-    </section>
-
-    <section class="panel editor-panel">
-      <div class="preview-column">
-        <h2>2. Önizleme</h2>
-        <div class="canvas-wrapper">
-          <canvas id="previewCanvas" width="1280" height="720" aria-label="Video önizleme"></canvas>
-          <button id="togglePlay" class="floating-button" title="Oynat / Duraklat">
-            <span id="playIcon">▶️</span>
-          </button>
-        </div>
-        <div class="transport">
-          <button id="rewind" class="ghost-button">⏮ Başlangıca Git</button>
-          <button id="play" class="primary">Oynat</button>
-          <button id="pause" class="ghost-button">Duraklat</button>
-          <label class="time-readout">
-            <span>Başlangıç:</span>
-            <output id="startLabel">0.00s</output>
-          </label>
-          <label class="time-readout">
-            <span>Bitiş:</span>
-            <output id="endLabel">0.00s</output>
-          </label>
-          <label class="time-readout">
-            <span>Anlık:</span>
-            <output id="currentLabel">0.00s</output>
-          </label>
-        </div>
-        <div class="range-controls">
-          <label>
-            <span>Başlangıç noktası</span>
-            <input type="range" id="startRange" min="0" max="0" step="0.01" value="0" />
-          </label>
-          <label>
-            <span>Bitiş noktası</span>
-            <input type="range" id="endRange" min="0" max="0" step="0.01" value="0" />
-          </label>
-          <label>
-            <span>Oynatma hızı</span>
-            <input type="range" id="speedRange" min="0.25" max="2" step="0.05" value="1" />
-            <output id="speedLabel">1.00x</output>
-          </label>
-        </div>
-      </div>
-
-      <div class="controls-column">
-        <section class="control-card">
-          <h3>Metin Bindirmesi</h3>
-          <label>
-            Başlık metni
-            <input type="text" id="overlayText" placeholder="Örn. Yaz tatili vlogu" />
-          </label>
-          <div class="two-column">
-            <label>
-              Renk
-              <input type="color" id="overlayColor" value="#ffffff" />
-            </label>
-            <label>
-              Boyut
-              <input type="range" id="overlaySize" min="12" max="96" value="42" />
-            </label>
-          </div>
-          <div class="two-column">
-            <label>
-              Yatay konum
-              <input type="range" id="overlayX" min="0" max="100" value="50" />
-            </label>
-            <label>
-              Dikey konum
-              <input type="range" id="overlayY" min="0" max="100" value="85" />
-            </label>
-          </div>
-          <label class="checkbox">
-            <input type="checkbox" id="overlayShadow" checked />
-            <span>Gölge efekti uygula</span>
-          </label>
-          <label>
-            Yazı tipi
-            <select id="overlayFont">
-              <option value="'Inter', sans-serif">Inter</option>
-              <option value="'Poppins', sans-serif">Poppins</option>
-              <option value="'Playfair Display', serif">Playfair Display</option>
-              <option value="'Fira Mono', monospace">Fira Mono</option>
-            </select>
-          </label>
-        </section>
-
-        <section class="control-card">
-          <h3>Görsel Filtreler</h3>
-          <label>
-            Filtre seçin
-            <select id="filterSelect">
-              <option value="none">Yok</option>
-              <option value="grayscale(0.8)">Siyah &amp; Beyaz</option>
-              <option value="sepia(0.7)">Sepya</option>
-              <option value="contrast(1.3) saturate(1.1)">Kontrastlı</option>
-              <option value="brightness(1.2) saturate(1.5)">Canlı</option>
-              <option value="hue-rotate(25deg) saturate(1.2)">Sıcak ton</option>
-            </select>
-          </label>
-        </section>
-
-        <section class="control-card">
-          <h3>Ses Kontrolü</h3>
-          <label>
-            Video sesi
-            <input type="range" id="videoVolume" min="0" max="1" step="0.05" value="1" />
-          </label>
-          <label>
-            Müzik sesi
-            <input type="range" id="musicVolume" min="0" max="1" step="0.05" value="0.6" />
-          </label>
-        </section>
-
-        <section class="control-card export">
-          <h3>3. Dışa Aktar</h3>
-          <p class="hint">İşlem tarayıcınızda gerçekleşir. Sonuç WebM formatında indirilecektir.</p>
-          <button id="export" class="primary export-button">Videoyu Dışa Aktar</button>
-          <div id="exportStatus" class="status"></div>
-          <div id="downloadSection" class="download" hidden>
-            <p>Kurgu hazır! Dosyayı indir:</p>
-            <a id="downloadLink" class="primary" download="montaj.webm">Montajı indir</a>
-          </div>
-        </section>
-      </div>
-    </section>
-
-    <section id="yardim" class="panel help-panel">
-      <h2>Sık sorulan sorular</h2>
-      <details open>
-        <summary>Video dosyaları cihazımdan dışarı çıkar mı?</summary>
-        <p>Hayır. Tüm montaj işlemi tarayıcınızda gerçekleşir. Dosyalar hiçbir sunucuya yüklenmez.</p>
-      </details>
-      <details>
-        <summary>Hangi formatlarda dışa aktarabilirim?</summary>
-        <p>Uygulama tarayıcının sunduğu <code>MediaRecorder</code> özelliğini kullanır ve WebM (VP8/VP9 + Opus) formatında çıktı üretir. Diğer formatlara çevirmek için harici araçları kullanabilirsiniz.</p>
-      </details>
-      <details>
-        <summary>Tarayıcı bu özellikleri desteklemiyorsa ne olur?</summary>
-        <p>Eğer tarayıcınız gerekli API'leri desteklemiyorsa dışa aktarma butonu uygun bir uyarı gösterir. Güncel Chrome, Edge ve Firefox sürümleri destek sunar.</p>
-      </details>
-      <details>
-        <summary>Uzun videoları işleyebilir miyim?</summary>
-        <p>Video işleme tamamen cihazınızın belleğine bağlıdır. Daha uzun ve yüksek çözünürlüklü videolar için güçlü bir bilgisayar önerilir.</p>
-      </details>
-    </section>
-  </main>
-
-  <footer class="app-footer">
-    <p>&copy; 2024 Akal Stüdyo. Tüm hakları saklıdır.</p>
-  </footer>
-
-  <script src="app.js" type="module"></script>
+  </section>
+  <script>
+    const faqButtons = document.querySelectorAll('.faq-button');
+    faqButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!expanded));
+        const answer = document.getElementById(button.getAttribute('aria-controls'));
+        if (answer) {
+          if (expanded) {
+            answer.hidden = true;
+          } else {
+            answer.hidden = false;
+          }
+        }
+      });
+    });
+  </script>
 </body>
 </html>

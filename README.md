@@ -1,24 +1,21 @@
-# Akal Video Stüdyo
+# After Effects Timeline Bölümü
 
-Bu depo, tarayıcı üzerinde çalışan tek sayfalık bir video montaj uygulamasını içerir. Uygulama; video kırpma, oynatma hızı ayarlama, metin bindirmesi, basit filtreler ve arka plan müziği ekleme gibi temel düzenleme adımlarını destekler. Tüm işlemler yerel cihazınızda gerçekleşir ve herhangi bir sunucuya dosya yüklenmez.
+Bu depo, Hostinger gibi paylaşımlı barındırma ortamlarına tek dosya halinde yüklenebilecek "After Effects Timeline (Zaman Çizelgesi)" başlıklı tanıtım bölümünü içerir. HTML dosyası, inline CSS ve küçük bir JavaScript bloğu ile SSS akordeonunu yönetir; başka hiçbir bağımlılık gerekmez.
 
-## Başlangıç
+## Kullanım
 
-1. Depoyu bilgisayarınıza klonlayın veya ZIP olarak indirin.
-2. `index.html` dosyasını modern bir tarayıcıda (Chrome, Edge veya Firefox) açın.
-3. "Video Dosyası Seç" düğmesiyle bir video yükleyin ve düzenlemeye başlayın.
+1. Depoyu indirin veya kopyalayın.
+2. `index.html` dosyasını `public_html` dizinine (veya yerel olarak tarayıcınıza) yükleyin.
+3. Dosya açıldığında responsive düzen, WCAG AA uyumlu akordeon kontrolleri ve SEO öğeleri (meta description, FAQPage JSON-LD) otomatik olarak çalışır.
 
-> **Not:** Dışa aktarma için tarayıcınızın `MediaRecorder` ve `canvas.captureStream` API'lerini desteklemesi gerekir. Eski tarayıcılar bu özellikleri sunmayabilir.
+## Yapı
 
-## Özellikler
+- Tek `h1` başlığı ve `h2` alt başlıkları
+- Katman/kompozisyon mantığı için dört maddelik liste
+- Erişilebilir akordeon bileşeni ile SSS bölümü
+- "Örnek proje dosyasını indir" çağrı butonu
+- 768px ve üzeri genişliklerde iki sütunlu düzen, mobilde tek sütun
 
-- Video içinden başlangıç ve bitiş noktaları seçme
-- Oynatma hızını değiştirme
-- Metin bindirmesi (renk, boyut, konum, yazı tipi ve gölge ayarı)
-- Görsel filtreler
-- Video ve arka plan müziği ses seviyelerini düzenleme
-- Düzenlenmiş videoyu WebM formatında dışa aktarma
+## Lisans
 
-## Katkıda Bulunma
-
-Özellik eklemek veya hata düzeltmek isterseniz lütfen bir dal açın ve Pull Request gönderin. Tarayıcı üzerinde çalışan çözümlere odaklandığımız için sunucu tarafı bileşenler kabul edilmemektedir.
+[MIT](LICENSE)
